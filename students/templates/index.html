@@ -1,0 +1,25 @@
+<html>
+    <head> <title> submit form</title></head>
+    <body>
+ <form method='POST' enctype='multipart/form-data'>
+    {% csrf_token %}
+     {{ form }}
+     <input type='submit' value='save'>
+</form>
+<table border='1px' style='width:100%'>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Images</th>
+    </tr>
+
+    {% for i in a %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}} </td>
+        <td><img style='width:100px; height:50px' src="{{i.docu.url}}"></td>
+    </tr>
+    {% endfor %}
+   </table>
+    </body>
+        </html>
